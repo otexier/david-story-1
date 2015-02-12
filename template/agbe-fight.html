@@ -1,0 +1,33 @@
+<div ng-show="fightPopupVisible" class="agbe_big_popup">
+    <div style="position:relative;width: 100%;height: 100%">
+        <div class="agbe_dynamic agbe_id_height_0_10" style="text-align: center">
+            <h3>fight !!!</h3>
+        </div>
+        <div class="agbe_dynamic agbe_id_height_10_80">
+            <div class="agbe_dynamic agbe_id_leftPart">
+                <div class="agbe_vertical_10_70_20-0" style="text-align: center">{{getMainCharacterName()}}</div>
+                <div class="agbe_vertical_10_70_20-1"><img class="agbe_img_fill_keep_ratio"
+                                                           ng-src="{{getMainCharacterImgPath()}}"/></div>
+                <div class="agbe_vertical_10_70_20-2" style="text-align: center">PV :
+                    {{getMainCharacterHealthPoints()}}
+                </div>
+            </div>
+            <div class="agbe_dynamic agbe_id_rightPart">
+                <div style="position:relative;width: 100%;height: 100%">
+                    <div class="agbe_dynamic agbe_id_height_0_10" style="text-align: center">{{getOpponentName()}}</div>
+                    <div class="agbe_dynamic agbe_id_height_10_70"><img class="agbe_img_fill_keep_ratio"
+                                                                        ng-src="{{getOpponentImgPath()}}"/></div>
+                    <div class="agbe_dynamic agbe_id_height_70_100" style="text-align: center">PV :
+                        {{getOpponentHealthPoints()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agbe_dynamic agbe_id_height_10_80">
+            <div class="agbe_center_horizontally" style="text-align: center">
+                <button ng-click="onClickAttack()">Attaquer</button>
+                <button ng-click="onClickRetreat()" ng-show="isRetreatAvailable()">Retraite</button>
+            </div>
+        </div>
+    </div>
+</div>

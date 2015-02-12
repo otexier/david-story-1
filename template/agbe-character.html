@@ -1,0 +1,7 @@
+<span ng-click="onAliveCharacterClick()" ng-show="characterHasToBeDisplayed() && characterIsAlive()">
+    <img class="agbe_dynamic" ng-src="story/img/{{getCharacterImgPath()}}">{{characterText}}
+</span>
+<span ng-click="onDeadCharacterClick()" ng-show="characterHasToBeDisplayed() && characterIsDead()">
+    Un personnage mort :
+    <img class="agbe_dynamic" ng-src="story/img/{{getCharacterImgPath()}}">{{characterText}}
+</span>
