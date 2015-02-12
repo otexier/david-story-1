@@ -6,7 +6,7 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
 
         createStartCharacter: function () {
             var newCharacter = new agbeEntities.MainCharacter();
-            newCharacter.name="Ulrich le brave";
+            newCharacter.name="Le disparu";
             newCharacter.dexterity = 12;
             newCharacter.healthPoints = 20;
             return newCharacter;

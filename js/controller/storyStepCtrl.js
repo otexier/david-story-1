@@ -30,6 +30,10 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             return storyStepService.isAlive(charIds);
         }
 
+        $scope.isObjectPresent = function(objectId) {
+            return storyStepService.isObjectPresent(objectId);
+        }
+
         $scope.isDead= function(charIds) {
             return storyStepService.isDead(charIds);
         }

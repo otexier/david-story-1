@@ -14,6 +14,10 @@ agbeServices.factory('storyStepService', ['$location', '$log', 'dataService', 'a
             return result;
         },
 
+        isObjectPresent: function(objectId) {
+            return agbeService.isObjectPresent(objectId);
+        },
+
         isDone:function (actionId) {
             return agbeService.isDone(actionId);
         },

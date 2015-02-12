@@ -1,26 +1,12 @@
-<agbe-sound url="sound/waves.mp3" loop="true" autoplay="true" volume="0.2"></agbe-sound>
-<agbe-sound url="sound/sword.mp3" id="sing"></agbe-sound>
-<agbe-character id="crab" hidden></agbe-character>
 <p>Vous êtes sur la plage.</p>
-<h2 ng-show="hourMinuteIsInRange('12:00','23:59')">Nous sommes l'après-midi</h2>
-<h2 ng-show="hourMinuteIsInRange('00:00','11:59')">Nous sommes le matin</h2>
-<h2 ng-show="isDay(1)">Nous sommes le lundi</h2>
-<h2 ng-show="isDay(0)">Nous sommes le dimanche</h2>
-<h2 ng-show="!isDay(1) && !isDay(0)">Nous ne sommes ni dimanche ni lundi</h2>
-<p ng-show="isAlive('crab')">Il y a un crabe</p>
-<h2 ng-show="isDead('crab')">Vous avez tué le crabe !!</h2>
+<p>Vous êtes un naufragé. Tous vos camarades sont morts, vous êtes le seul survivant.</p>
+<p>Vous avez une carte, elle vous indique que vous êtes sur l'"Île des Disparus". La carte vous indique aussi qu'il y a un trésor, mais avant que n'ayez plus de renseignements, la carte est emportée au loin par une bourrasque.</p>
+<agbe-object name="un couteau" id="knife" ng-show="false"></agbe-object>
+<p ng-show="isObjectPresent('knife')">Il y a un couteau.</p>
 <p>Voulez-vous : </p>
-<h2 ng-show="hasRetreated('crab')">Vous avez lachement reculé devant le crabe !!</h2>
-<agbe-object name="un couteau" id="knife"></agbe-object>
 <ul>
-    <li ng-show="isAlive('crab')"><agbe-choice label="Combattre le crabe" action="fightOrRetreat('crab')"></agbe-choice></li>
-    <li ng-show="isAlive('crab') && hasRetreated('crab')"><agbe-choice label="Mourir de honte et partir en forêt" action="go('foret')"></agbe-choice></li>
-    <li><agbe-choice label="Aller dans la forêt" action="go('foret')"></agbe-choice></li>
-    <li><agbe-choice label="Aller sur la plage" action="go('plage')"></agbe-choice></li>
+    <li><agbe-choice label="explorer la plage" action="go('plage')"></agbe-choice></li>
+    <li><agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice></li>
+    <li><agbe-choice label="explorer l'île" action="go('cascade')"></agbe-choice></li>
+    <li ng-show="isObjectPresent('knife')"><agbe-choice label="ramasser le couteau" action="take('knife')"/></li>
 </ul>
-<div ng-show="!isDone('start.chanter')">
-Voulez-vous de plus
-<agbe-choice label="vous mettre à chanter" action="do('start.chanter')"></agbe-choice>
-<agbe-choice label="Faire un bruit" action="playSound('sing')"></agbe-choice>
-</div>
-<h2 ng-show="isDone('start.chanter')">Vous avez super bien chanté</h2>
