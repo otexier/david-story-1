@@ -1,4 +1,4 @@
-agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService', function ($log, dataService, agbeService, popupService) {
+agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService','actionService', function ($log, dataService, agbeService, popupService,actionService) {
 
     var me = {
 
@@ -58,12 +58,14 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             $log.log('fightService.endFightSuccessFully : opponent ' + me.getOpponentCharacterId() + ' vanquished');
             me.declareVictory(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
+            actionService.onActionEnd();
         },
 
         endFightRetreat: function () {
             $log.log('fightService.endFightRetreat');
             me.declareRetreat(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
+            actionService.onActionEnd();
         },
 
         declareVictory: function (characterId) {

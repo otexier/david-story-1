@@ -33,6 +33,10 @@ var agbeEntities = {
             this.state = {}
     },
 
+    MultipleActionsContext : function() {
+
+    },
+
     ObjectInfo: function () {
         this.number = undefined
     },
