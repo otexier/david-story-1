@@ -336,6 +336,16 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
             return res;
         },
 
+        getCharacterAttackSoundPath: function (characterId) {
+            var result = null;
+            var char = dataService.worldData.characterDictionnary[characterId];
+            if (char == null) {
+                alert("Impossible to find character with id=" + characterId);
+            }
+            result = char.attackSoundPath;
+            return result;
+        },
+
         getCharacterImgPath: function (characterId) {
             var result = null;
             var char = dataService.worldData.characterDictionnary[characterId];

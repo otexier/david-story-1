@@ -55,7 +55,7 @@ agbeServices.factory('soundService', ['$log', function ($log) {
         },
 
         playStorySound: function (nameWithExtension) {
-            me.innerPlay('story/audio/', nameWithExtension);
+            me.innerPlay('story/', nameWithExtension);
         }
     }
 

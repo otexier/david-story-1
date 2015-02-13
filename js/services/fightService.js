@@ -1,4 +1,4 @@
-agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService','actionService', function ($log, dataService, agbeService, popupService,actionService) {
+agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService','actionService','soundService', function ($log, dataService, agbeService, popupService,actionService,soundService) {
 
     var me = {
 
@@ -105,6 +105,10 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             return me.getOpponent().dexterity;
         },
 
+        getOpponentAttackSoundPath: function () {
+            return agbeService.getCharacterAttackSoundPath(me.getOpponent().charId);
+        },
+
         getCharacterImgPath: function (charId) {
             return agbeService.getCharacterImgPath(charId);
         },
@@ -133,6 +137,7 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
         manageAttackRound: function () {
             var mainAttack = me.rollDice6() + me.getMainCharacterDexterity();
             var opponentAttack = me.rollDice6() + me.getOpponentDexterity();
+            soundService.playStorySound(me.getOpponentAttackSoundPath())
             var attackResult = mainAttack - opponentAttack;
             if (attackResult < 0) {
                 me.manageRoundLoss();
