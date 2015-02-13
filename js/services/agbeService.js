@@ -310,12 +310,15 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
 
         declareCharacterOccurrence: function (charId, charNumber,options) {
             var oc = agbeService.getCharacterOccurrence(charId, charNumber);
-            oc.number = charNumber;
-            oc.numberAlive = charNumber;
-            if (options) {
-                if (options.name) {
-                    oc.name = options.name;
+            if (!oc.setByStory) {
+                oc.number = charNumber;
+                oc.numberAlive = charNumber;
+                if (options) {
+                    if (options.name) {
+                        oc.name = options.name;
+                    }
                 }
+                oc.setByStory = true;
             }
         },
 

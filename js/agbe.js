@@ -21,7 +21,8 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
             }
         );
     }).
-    run(['$log','agbeService', function (log,agbeService) {
+    run(['$log','agbeService','agbeDependenciesManager', function (log,agbeService,agbeDependenciesManager) {
         log.log("Initialisation du module agbe");
+        agbeDependenciesManager.init();
         agbeService.init();
     }]);

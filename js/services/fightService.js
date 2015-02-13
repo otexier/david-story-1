@@ -1,4 +1,4 @@
-agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService','actionService','soundService', function ($log, dataService, agbeService, popupService,actionService,soundService) {
+agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'popupService','soundService', function ($log, dataService, agbeService, popupService,soundService) {
 
     var me = {
 
@@ -7,6 +7,9 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
         retreatAvailable: false,
 
         characterId: null,
+
+        // dependencies manually injected
+        actionService: null,
 
         init: function (characterId) {
             me.characterId = characterId;
@@ -58,14 +61,14 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             $log.log('fightService.endFightSuccessFully : opponent ' + me.getOpponentCharacterId() + ' vanquished');
             me.declareVictory(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
-            actionService.onActionEnd();
+            me.actionService.onActionEnd();
         },
 
         endFightRetreat: function () {
             $log.log('fightService.endFightRetreat');
             me.declareRetreat(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
-            actionService.onActionEnd();
+            me.actionService.onActionEnd();
         },
 
         declareVictory: function (characterId) {

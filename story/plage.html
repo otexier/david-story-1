@@ -1,4 +1,6 @@
 <p>Vous explorez la plage.</p>
+<agbe-character id="crab" hidden="true"></agbe-character>
+<div ng-show="!isDead('crab')">
 <p>Au bout d'un quart d'heure, vous tombez sur un crabe géant de un mètre de long. Il va vous attaquer.
 <p>Voulez-vous : </p>
 <ul>
@@ -7,3 +9,5 @@
     <li><agbe-choice label="s'enfuir et retourner au début" action="info('Le crabe vous inflige deux points de dégats');health(-2);go('start')"></agbe-choice></li>
     <li><agbe-choice label="combattre le crabe" action="fight('crab');go('plage_apres_crabe');"></agbe-choice></li>
 </ul>
+</div>
+<agbe-action action="go('plage_apres_crabe')" condition="isDead('crab')"></agbe-action>
