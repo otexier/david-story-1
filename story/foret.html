@@ -1,6 +1,12 @@
 <h2>La forêt</h2>
+<div ng-show="!isDead('spider')">
 <p>Dans la forêt vous entendez un bruit sinistre. Vous vous retournez et voyez une immense araignée à coté d'une toile qui fait dix fois votre taille dans laquelle des squelettes sont pris.</p>
+<agbe-character id="spider" clickable="false"></agbe-character>
 <p>Vous pouvez : </p>
 <ul>
-    <li><agbe-choice label="aller sur la plage" action="go('plage')"></agbe-choice></li>
+    <li><agbe-choice label="s'enfuir sur la plage" action="info('L\'araignée profite de votre fuite lache pour vous infliger deux points de dégats');health(-2);go('plage')"></agbe-choice></li>
+    <li><agbe-choice label="s'enfuir et retourner au début" action="info('L\'araignée profite de votre fuite lache pour vous infliger deux points de dégats');health(-2);go('start')"></agbe-choice></li>
+    <li><agbe-choice label="combattre l'araignée" action="fight('spider');go('foret_apres_araignee');"></agbe-choice></li>
 </ul>
+</div>
+<agbe-action action="go('foret_apres_araignee')" condition="isDead('spider')"></agbe-action>

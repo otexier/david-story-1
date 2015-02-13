@@ -359,6 +359,16 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
             return result;
         },
 
+        getCharacterName: function (characterId) {
+            var result = null;
+            var char = dataService.worldData.characterDictionnary[characterId];
+            if (char == null) {
+                alert("Impossible to find character with id=" + characterId);
+            }
+            result = char.name;
+            return result;
+        },
+
         getPhysicalObject: function (objectId) {
             var obj = dataService.worldData.objectDictionnary[objectId];
             if (obj == null) {

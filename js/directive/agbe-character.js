@@ -7,6 +7,13 @@ agbeApp.directive('agbeCharacter', function () {
             $scope.characterId = $attrs.id;
             $scope.characterName = $attrs.name;
             $scope.characterNumber = $attrs.number;
+            var fightOnClickString = $attrs.clickable;
+            if (fightOnClickString == "false") {
+                $scope.fightOnClick = false;
+            }
+            else {
+                $scope.fightOnClick = true;
+            }
             if ($scope.characterNumber == null) {
                 $scope.characterNumber = 1;
             }
@@ -39,6 +46,12 @@ agbeApp.directive('agbeCharacter', function () {
                 return agbeService.isCharacterOccurrenceDead($scope.characterId, 1)
             }
 
+            $scope.getCharacterName = function () {
+                if ($scope.characterId != null) {
+                    return agbeService.getCharacterName($scope.characterId);
+                }
+            };
+
             $scope.getCharacterImgPath = function () {
                 if ($scope.characterId != null) {
                     return agbeService.getCharacterImgPath($scope.characterId);
@@ -46,7 +59,9 @@ agbeApp.directive('agbeCharacter', function () {
             };
 
             $scope.onAliveCharacterClick = function () {
-                fightService.fightOrRetreat($scope.characterId);
+                if ($scope.fightOnClick) {
+                    fightService.fightOrRetreat($scope.characterId);
+                }
             };
 
             $scope.onDeadCharacterClick = function () {

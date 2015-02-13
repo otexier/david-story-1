@@ -28,6 +28,7 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
             var newWorld = new agbeEntities.World();
             agbeAdapter.agbeService.registerObject(newWorld,new agbeEntities.PhysicalObject('knife', 'Couteau', 'objects/knife.png'));
             agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('crab', 'Le méchant crabe', 10,5,'characters/crab.jpg','sound/sword.mp3'));
+            agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('spider', 'Une immense araignée', 15,10,'characters/spider.jpg','sound/sword.mp3'));
             return newWorld;
         }
     }
