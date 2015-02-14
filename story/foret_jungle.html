@@ -1,0 +1,10 @@
+<h2>La jungle</h2>
+<p>La forêt se transforme rapidement en jungle et devient plus sombre. Vous avez l'impression de voir les lianes bouger, mais vous vous rendez bientôt compte qu'il s'agit d'un énorme serpent</p>
+<agbe-character id="snake" clickable="false"></agbe-character>
+<p>Vous pouvez : </p>
+<ul>
+    <li><agbe-choice label="attaquer le serpent" action="fight('snake');go('grotte')"></agbe-choice></li>
+    <li><agbe-choice label="s'enfuir et retourner d'où vous venez" action="info('Le serpent profite de votre fuite lache pour vous infliger deux points de dégats');health(-2);go('foret_apres_araignee')"></agbe-choice></li>
+    <li><agbe-choice label="chercher une arme sur le sol" action="go('jungle_chute');"></agbe-choice></li>
+</ul>
+</div>

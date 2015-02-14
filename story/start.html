@@ -7,6 +7,6 @@
 <ul>
     <li><agbe-choice label="explorer la plage" action="wait(15);go('plage')"></agbe-choice></li>
     <li><agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice></li>
-    <li><agbe-choice label="explorer l'île" action="info('Alors que vous débutez l\'exploration de l\'île, un crabe vous attaque');fight('crab')"></agbe-choice></li>
+    <li><agbe-choice label="explorer l'île" action="go('ile')"></agbe-choice></li>
     <li ng-show="isObjectPresent('knife')"><agbe-choice label="ramasser le couteau" action="take('knife')"/></li>
 </ul>

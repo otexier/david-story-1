@@ -7,7 +7,7 @@ agbeApp.directive('agbeAction', ['actionService', function (actionService) {
         },
         link: function ($scope, element, $attrs) {
             $scope.action = $attrs.action;
-            if ($scope.condition) {
+            if ($scope.condition == true || $scope.condition == null) {
                 actionService.doActions($scope.action);
             }
         }

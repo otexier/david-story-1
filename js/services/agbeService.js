@@ -75,6 +75,11 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
            dataService.storyData.date = newTime;
         },
 
+        mainCharacterResetHealthPoints: function () {
+            var mainChar = agbeService.getMainChar();
+            mainChar.healthPoints = mainChar.maxHealthPoints;
+        },
+
         mainCharacterChangeHealthPoints: function (healthPointsDelta) {
             var mainChar = agbeService.getMainChar();
             mainChar.healthPoints = mainChar.healthPoints+healthPointsDelta;

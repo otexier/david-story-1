@@ -9,6 +9,7 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
             newCharacter.name="Le disparu";
             newCharacter.dexterity = 12;
             newCharacter.healthPoints = 20;
+            newCharacter.maxHealthPoints = 20;
             return newCharacter;
         },
 

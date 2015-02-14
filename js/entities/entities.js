@@ -3,7 +3,7 @@ var agbeEntities = {
     /**
      * @name Character
      */
-    Character: function (id, name, healthPoints, dexterity, img,attackSoundPath) {
+    Character: function (id, name, healthPoints, dexterity, img, attackSoundPath) {
         this.id = id;
         this.name = name;
         this.healthPoints = healthPoints;
@@ -27,13 +27,14 @@ var agbeEntities = {
     },
 
     MainCharacter: function () {
-        this.name = undefined,
-            this.healthPoints = undefined,
-            this.dexterity = undefined,
-            this.state = {}
+        this.name = undefined;
+        this.healthPoints = undefined;
+        this.dexterity = undefined;
+        this.state = {};
+        this.maxHealthPoints = null;
     },
 
-    MultipleActionsContext : function() {
+    MultipleActionsContext: function () {
 
     },
 
