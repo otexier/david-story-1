@@ -1,3 +1,1 @@
-// TODO coder le combat
-// TODO coder l'inventaire
-// TODO commit
+// TODO ajouter un popup "vous êtes victorieux" après un combat
