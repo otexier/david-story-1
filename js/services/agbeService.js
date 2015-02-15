@@ -82,7 +82,7 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
 
         mainCharacterChangeHealthPoints: function (healthPointsDelta) {
             var mainChar = agbeService.getMainChar();
-            mainChar.healthPoints = mainChar.healthPoints+healthPointsDelta;
+            mainChar.healthPoints = Math.min(mainChar.healthPoints+healthPointsDelta,mainChar.maxHealthPoints);
             log.log('agbeService.mainCharacterChangeHealthPoints : delta de '+healthPointsDelta+'. Résultat : '+mainChar.healthPoints);
             if (mainChar.healthPoints <=0) {
                 agbeService.manageMainCharDeath();

@@ -84,6 +84,10 @@ agbeServices.factory('actionService', ['$log', 'agbeService', 'popupService','$r
                 agbeService.mainCharacterResetHealthPoints()
             }
 
+            result.isLastFightWon = function() {
+                return false;
+            }
+
             return result;
         }
 
