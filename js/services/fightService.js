@@ -11,6 +11,8 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
         // dependencies manually injected
         actionService: null,
 
+        listeners:null,
+
         init: function (characterId) {
             me.characterId = characterId;
             var oc = agbeService.getCharacterOccurrence(characterId);
@@ -18,6 +20,14 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
                 // lazy character declaration if character has not been defined in step
                 agbeService.declareCharacterOccurrence(characterId, 1);
             }
+        },
+
+        clearListeners:function() {
+            me.listeners = [];
+        },
+
+        addListener:function(fightListener) {
+            me.listeners.push(fightListener);
         },
 
         fight: function (characterId) {
@@ -61,6 +71,7 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             $log.log('fightService.endFightSuccessFully : opponent ' + me.getOpponentCharacterId() + ' vanquished');
             me.declareVictory(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
+            me.fire('fightSuccess');
             me.actionService.onActionEnd();
         },
 
@@ -68,6 +79,7 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             $log.log('fightService.endFightRetreat');
             me.declareRetreat(me.getOpponentCharacterId());
             me.fightCtrlScope.hidePopup();
+            me.fire('fightRetreat');
             me.actionService.onActionEnd();
         },
 
@@ -120,13 +132,24 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             return Math.floor((Math.random() * 6) + 1);
         },
 
+        fire : function(eventType,value) {
+            for (var i=0;i<me.listeners.length;i++) {
+                var listener = me.listeners[i];
+                if (listener != null) {
+                    listener(eventType,value);
+                }
+            }
+        },
+
         manageRoundLoss: function () {
             agbeService.mainCharacterChangeHealthPoints(-3);
+            me.fire('roundLoss');
         },
 
         manageRoundWin: function () {
             if (me.getOpponent() != null && me.getOpponent().healthPoints) {
                 me.getOpponent().healthPoints = me.getOpponent().healthPoints - 3;
+                me.fire('roundWin');
                 if (me.getOpponentHealthPoints() <= 0) {
                     me.endFightSuccessfully();
                 }
@@ -135,6 +158,7 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
 
         manageRoundEquality: function () {
             popupService.infoOnly("Egalité");
+            me.fire('roundEquality');
         },
 
         manageAttackRound: function () {

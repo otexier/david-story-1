@@ -36,3 +36,5 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
             startApp();
         }
     }]);
+
+agbeApp.storyScripts = {};
