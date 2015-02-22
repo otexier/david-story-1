@@ -38,9 +38,9 @@ agbeServices.factory('soundService', ['$log', function ($log) {
         },
 
         innerPlay: function (basePath, nameWithExtension) {
-            var isPhonegap = (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
+            var isCordova = !!window.cordova;
             alert('innerPlay : isPhonegap='+isPhonegap);
-            if (isPhonegap) {
+            if (isCordova) {
                 /*
                 var lla = window.plugins.LowLatencyAudio;
                 var idxLastDot = nameWithExtension.lastIndexOf('.');
