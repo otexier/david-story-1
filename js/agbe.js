@@ -24,7 +24,6 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
     run(['$log','agbeService','agbeDependenciesManager', function (log,agbeService,agbeDependenciesManager) {
         document.addEventListener("deviceready", function() {
             agbeService.isCordova = true;
-            alert('je suis dans cordova');
         }, false);
         log.log("Initialisation du module agbe");
         agbeDependenciesManager.init();

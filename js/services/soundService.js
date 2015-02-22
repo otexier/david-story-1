@@ -23,7 +23,6 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         innerPlay: function (basePath, nameWithExtension) {
             var isCordova = me.agbeService.isCordova;
-            alert('innerPlay : isCordova='+isCordova);
             if (isCordova) {
                 /*
                 var lla = window.plugins.LowLatencyAudio;
@@ -32,13 +31,13 @@ agbeServices.factory('soundService', ['$log',function ($log) {
                 alert('innerPlay : basePath '+basePath+' nameWithExtension: '+nameWithNoExtension+' lla='+lla);
                 lla.play(nameWithNoExtension);
                 */
-                    var url = basePath+'/'+nameWithExtension;
+                    var url = basePath+nameWithExtension;
                 alert('Avant appel media url = '+url);
                     var my_media = new Media(url,
                         // success callback
                         function () { alert('succes'); },
                         // error callback
-                        function (err) { alert('erreur : '+err); }
+                        function (err) { alert('erreur : '+err.message+' '+err.code); }
                     );
                     // Play audio
                     my_media.play();
