@@ -37,13 +37,13 @@ agbeServices.factory('soundService', ['$log', function ($log) {
                 var prefix = me.getSoundPathPlatformPrefix();
                 var url = prefix + basePath + nameWithExtension;
                 var my_media = new Media(url,
-                    // success callback
                     function () {
-                        alert('succes');
+                        $log.log('soundService.innerPlay success for '+nameWithExtension);
                     },
                     // error callback
                     function (err) {
-                        alert('erreur : ' + err.message + ' ' + err.code);
+                        $log.log('soundService.innerPlay error for '+nameWithExtension);
+                        alert('soundService.innerPlay : error for '+nameWithExtension+' : '+ err.code);
                     }
                 );
                 // Play audio
