@@ -1,10 +1,9 @@
-agbeServices.factory('agbeDependenciesManager', ['actionService','fightService','agbeService','soundService', function (actionService,fightService,agbeService,soundService) {
+agbeServices.factory('agbeDependenciesManager', ['actionService','fightService', function (actionService,fightService) {
 
     var me = {
 
         init: function () {
             fightService.actionService = actionService;
-            soundService.agbeService = agbeService;
         }
     }
 

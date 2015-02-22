@@ -1,46 +1,53 @@
-agbeServices.factory('soundService', ['$log',function ($log) {
+agbeServices.factory('soundService', ['$log', function ($log) {
 
     var me = {
 
-        soundsById : {},
+        soundsById: {},
 
-        agbeService:null,
-
-        registerSound : function(id,sound) {
+        registerSound: function (id, sound) {
             me.soundsById[id] = sound;
         },
 
-        unregisterSound : function(id,sound) {
+        unregisterSound: function (id, sound) {
             delete me.soundsById[id];
         },
 
-        playSound : function(soundId) {
+        playSound: function (soundId) {
             var sound = me.soundsById[soundId];
             if (sound) {
                 sound.play();
             }
         },
 
+        getSoundPathPlatformPrefix: function () {
+            var result = '';
+            var pf = window.device.platform;
+            switch (pf.toUpperCase()) {
+                case 'ANDROID' :
+                    result = '/android_asset/www/';
+                    break;
+                default : alert('soundService : platform '+pf+' not managed !');
+            }
+            return result;
+        },
+
         innerPlay: function (basePath, nameWithExtension) {
-            var isCordova = me.agbeService.isCordova;
+            var isCordova = !!window.cordova;
             if (isCordova) {
-                /*
-                var lla = window.plugins.LowLatencyAudio;
-                var idxLastDot = nameWithExtension.lastIndexOf('.');
-                var nameWithNoExtension = basePath+nameWithExtension.substr(0, idxLastDot);
-                alert('innerPlay : basePath '+basePath+' nameWithExtension: '+nameWithNoExtension+' lla='+lla);
-                lla.play(nameWithNoExtension);
-                */
-                    var url = '/android_asset/www/'+basePath+nameWithExtension;
-                alert('Avant appel media url = '+url);
-                    var my_media = new Media(url,
-                        // success callback
-                        function () { alert('succes'); },
-                        // error callback
-                        function (err) { alert('erreur : '+err.message+' '+err.code); }
-                    );
-                    // Play audio
-                    my_media.play();
+                var prefix = me.getSoundPathPlatformPrefix();
+                var url = prefix + basePath + nameWithExtension;
+                var my_media = new Media(url,
+                    // success callback
+                    function () {
+                        alert('succes');
+                    },
+                    // error callback
+                    function (err) {
+                        alert('erreur : ' + err.message + ' ' + err.code);
+                    }
+                );
+                // Play audio
+                my_media.play();
             }
             else {
                 var auOgg = new Audio(basePath + nameWithExtension);

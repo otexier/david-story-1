@@ -4,8 +4,6 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
 
         popupService:null,
 
-        isCordova:false,
-
         // public API methods
 
         agbeGo: function (agbeLocation) {

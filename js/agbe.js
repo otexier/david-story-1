@@ -22,10 +22,17 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
         );
     }).
     run(['$log','agbeService','agbeDependenciesManager', function (log,agbeService,agbeDependenciesManager) {
-        document.addEventListener("deviceready", function() {
-            agbeService.isCordova = true;
-        }, false);
-        log.log("Initialisation du module agbe");
-        agbeDependenciesManager.init();
-        agbeService.init();
+        var startApp = function() {
+            log.log("Initialisation du module agbe");
+            agbeDependenciesManager.init();
+            agbeService.init();
+        };
+        if (!!window.cordova) {
+            document.addEventListener("deviceready", function () {
+                startApp();
+            }, false);
+        }
+        else {
+            startApp();
+        }
     }]);
