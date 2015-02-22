@@ -40,11 +40,23 @@ agbeServices.factory('soundService', ['$log', function ($log) {
         innerPlay: function (basePath, nameWithExtension) {
             var isPhonegap = (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
             if (isPhonegap) {
+                /*
                 var lla = window.plugins.LowLatencyAudio;
                 var idxLastDot = nameWithExtension.lastIndexOf('.');
                 var nameWithNoExtension = basePath+nameWithExtension.substr(0, idxLastDot);
                 alert('innerPlay : basePath '+basePath+' nameWithExtension: '+nameWithNoExtension+' lla='+lla);
                 lla.play(nameWithNoExtension);
+                */
+                    var url = basePath+'/'+nameWithExtension;
+                alert('Avant appel media url = '+url);
+                    var my_media = new Media(url,
+                        // success callback
+                        function () { alert('succes'); },
+                        // error callback
+                        function (err) { alert('erreur : '+err); }
+                    );
+                    // Play audio
+                    my_media.play();
             }
             else {
                 var auOgg = new Audio(basePath + nameWithExtension);
