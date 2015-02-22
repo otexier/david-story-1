@@ -22,9 +22,11 @@ agbeServices.factory('soundService', ['$log', function ($log) {
         preloadSound: function (basePath, soundPathWithExtension) {
             var isPhonegap = (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
             if (isPhonegap) {
+                alert('preloadSound : basePath '+basePath+' soundPathWithExtension : '+soundPathWithExtension);
                 var idxLastDot = soundPathWithExtension.lastIndexOf('.');
                 var nameWithNoExtension = basePath+soundPathWithExtension.substr(0, idxLastDot);
                 var lla = window.plugins.LowLatencyAudio;
+                alert('preloadSound2 : basePath '+basePath+' soundPathWithExtension : '+soundPathWithExtension+' lla='+lla);
                 lla.preloadFX(nameWithNoExtension, basePath + soundPathWithExtension);
             }
         },
@@ -41,6 +43,7 @@ agbeServices.factory('soundService', ['$log', function ($log) {
                 var lla = window.plugins.LowLatencyAudio;
                 var idxLastDot = nameWithExtension.lastIndexOf('.');
                 var nameWithNoExtension = basePath+nameWithExtension.substr(0, idxLastDot);
+                alert('innerPlay : basePath '+basePath+' nameWithExtension: '+nameWithNoExtension+' lla='+lla);
                 lla.play(nameWithNoExtension);
             }
             else {
