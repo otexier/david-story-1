@@ -31,7 +31,7 @@ agbeServices.factory('soundService', ['$log',function ($log) {
                 alert('innerPlay : basePath '+basePath+' nameWithExtension: '+nameWithNoExtension+' lla='+lla);
                 lla.play(nameWithNoExtension);
                 */
-                    var url = basePath+nameWithExtension;
+                    var url = '/android_asset/www/'+basePath+nameWithExtension;
                 alert('Avant appel media url = '+url);
                     var my_media = new Media(url,
                         // success callback
