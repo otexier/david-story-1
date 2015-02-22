@@ -13,9 +13,6 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
         init: function () {
             log.log("agbeService.init()");
             dataService.worldData = agbeAdapter.createStartWorld();
-            agbeService.forAllCharacters(function (character) {
-                soundService.preloadSound('story/',character.attackSoundPath);
-            })
         },
 
         forAllCharacters:function(callback) {

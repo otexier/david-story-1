@@ -19,27 +19,9 @@ agbeServices.factory('soundService', ['$log', function ($log) {
             }
         },
 
-        preloadSound: function (basePath, soundPathWithExtension) {
-            var isPhonegap = (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
-            if (isPhonegap) {
-                alert('preloadSound : basePath '+basePath+' soundPathWithExtension : '+soundPathWithExtension);
-                var idxLastDot = soundPathWithExtension.lastIndexOf('.');
-                var nameWithNoExtension = basePath+soundPathWithExtension.substr(0, idxLastDot);
-                var lla = window.plugins.LowLatencyAudio;
-                alert('preloadSound2 : basePath '+basePath+' soundPathWithExtension : '+soundPathWithExtension+' lla='+lla);
-                lla.preloadFX(nameWithNoExtension, basePath + soundPathWithExtension);
-            }
-        },
-
-        preloadSoundArray: function (basePath, soundArray) {
-            for (var i = 0; i < soundArray.length; i++) {
-                me.preloadSound(basePath, soundArray[i]);
-            }
-        },
-
         innerPlay: function (basePath, nameWithExtension) {
             var isCordova = !!window.cordova;
-            alert('innerPlay : isPhonegap='+isPhonegap);
+            alert('innerPlay : isCordova='+isCordova);
             if (isCordova) {
                 /*
                 var lla = window.plugins.LowLatencyAudio;
