@@ -1,8 +1,10 @@
-agbeServices.factory('soundService', ['$log', function ($log) {
+agbeServices.factory('soundService', ['$log',function ($log) {
 
     var me = {
 
         soundsById : {},
+
+        agbeService:null,
 
         registerSound : function(id,sound) {
             me.soundsById[id] = sound;
@@ -20,7 +22,7 @@ agbeServices.factory('soundService', ['$log', function ($log) {
         },
 
         innerPlay: function (basePath, nameWithExtension) {
-            var isCordova = !!window.cordova;
+            var isCordova = me.agbeService.isCordova;
             alert('innerPlay : isCordova='+isCordova);
             if (isCordova) {
                 /*
