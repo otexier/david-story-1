@@ -11,8 +11,8 @@ agbeServices.factory('actionService', ['$log', 'agbeService', 'popupService','$r
         privateScope:null,
 
         doActions: function (actionsString) {
-            fightService.clearListeners();
             me.currentActionIndex = 0;
+            fightService.clearListeners();
             me.privateScope = me.buildPrivateScope();
             me.actionsArray = actionsString.split(';');
             me.multipleActionsContext = new agbeEntities.MultipleActionsContext();
@@ -91,7 +91,13 @@ agbeServices.factory('actionService', ['$log', 'agbeService', 'popupService','$r
 
             result.registerFightListener = function(listenerName) {
                 var listener = agbeApp.storyScripts[listenerName];
-                fightService.addListener(listener);
+                var decoratedListener = function(eventType,data) {
+                    if (data) {
+                        data.actionService = me;
+                    }
+                    listener(eventType,data);
+                }
+                fightService.addListener(decoratedListener);
                 me.onActionEnd();
             }
 
