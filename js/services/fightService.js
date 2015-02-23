@@ -13,13 +13,29 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
 
         listeners:null,
 
+        fightListenerData:null,
+
         init: function (characterId) {
             me.characterId = characterId;
+            me.fightListenerData= me.initFightListenerData();
             var oc = agbeService.getCharacterOccurrence(characterId);
             if (oc == null) {
                 // lazy character declaration if character has not been defined in step
                 agbeService.declareCharacterOccurrence(characterId, 1);
             }
+        },
+
+        initFightListenerData:function() {
+            var result = {};
+            result.initialMainCharHealth = me.getMainCharacterHealthPoints();
+            result.initialMainCharDexterity = me.getMainCharacterDexterity();
+            result.initialOpponentHealth = me.getOpponentHealthPoints();
+            result.initialOpponentDexterity = me.getOpponentDexterity();
+            result.numberOfRound = 0;
+            result.numberOfRoundLoss = 0;
+            result.numberOfRoundEquality = 0;
+            result.numberOfRoundWin = 0;
+            return result;
         },
 
         clearListeners:function() {
@@ -132,11 +148,27 @@ agbeServices.factory('fightService', ['$log', 'dataService', 'agbeService', 'pop
             return Math.floor((Math.random() * 6) + 1);
         },
 
-        fire : function(eventType,value) {
+        fire : function(eventType) {
+            var fld = me.fightListenerData;
+            fld.fightService = me;
+            fld.numberOfRound = fld.numberOfRound+1;
+            fld.currentMainCharHealth = me.getMainCharacterHealthPoints();
+            fld.currentMainCharDexterity = me.getMainCharacterDexterity();
+            fld.currentOpponentHealth = me.getOpponentHealthPoints();
+            fld.currentOpponentDexterity = me.getOpponentDexterity();
+            fld.eventType = eventType;
+            switch (eventType) {
+                case 'roundEquality' : fld.numberOfRoundEquality = fld.numberOfRoundEquality+1;break;
+                case 'roundLoss' : fld.numberOfRoundLoss = fld.numberOfRoundLoss+1;break;
+                case 'roundWin' : fld.numberOfRoundWin = fld.numberOfRoundWin+1;break;
+                case 'fightSuccess' : break;
+                case 'fightRetreat' : break;
+                default : alert('fightService.fire : eventType \''+eventType+'\' unknown');break;
+            }
             for (var i=0;i<me.listeners.length;i++) {
                 var listener = me.listeners[i];
                 if (listener != null) {
-                    listener(eventType,value);
+                    listener(eventType,fld);
                 }
             }
         },
