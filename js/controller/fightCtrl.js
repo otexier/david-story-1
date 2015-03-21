@@ -25,7 +25,7 @@ agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams'
         }
 
         $scope.getMainCharacterImgPath = function () {
-            return './story/img/characters/main.jpg';
+            return './story/img/characters/main.png';
         }
 
         $scope.getOpponentImgWidth = function () {

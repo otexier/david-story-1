@@ -1,11 +1,13 @@
-<div ng-show="popupVisible" class="agbe_popup">
+<div class="agbe_overlay" ng-show="popupVisible" >
+    <div class="agbe_popup">
     <div style="position:relative;width: 100%;height: 100%">
         <div class="agbe_dynamic agbe_id_height_10_80" style="text-align: center">
-            <h3>{{getMessage()}}</h3>
+            <h3 class="white">{{getMessage()}}</h3>
             <div class="agbe_center_horizontally" style="text-align: center">
-                <button ng-click="onClickYes()">{{yesLabel}}</button>
-                <button ng-click="onClickNo()" ng-show="isNoAvailable()">{{noLabel}}</button>
+                <h4  class="pointer" ng-click="onClickYes()">{{yesLabel}}</h4>
+                <h4  class="pointer" ng-click="onClickNo()" ng-show="isNoAvailable()">{{noLabel}}</h4>
             </div>
         </div>
     </div>
+</div>
 </div>

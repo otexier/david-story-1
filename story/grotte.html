@@ -1,18 +1,32 @@
-<h2>La grotte</h2>
-<p>Vous entrez dans la grotte et voyez un dragon qui garde un trésor.</p>
-<agbe-character id="dragon" clickable="false"></agbe-character>
-<script>
-    agbeApp.storyScripts['dragonFightListener'] = function(eventType,data) {
-        if (data.numberOfRoundWin > 0) {
-            data.actionService.doActions("info('Vous venez de remporter un assault ! Le dragon fuit !');go('grotte_apres_dragon')");
-        }
-    };
-</script>
+<div class="narration col-md-8 col-md-offset-2">
 
-<p>Vous pouvez : </p>
-<ul>
-    <li><agbe-choice label="attaquer le dragon" action="registerFightListener('dragonFightListener');fight('dragon');go('grotte_apres_dragon')"></agbe-choice></li>
-    <li><agbe-choice label="s'enfuir et retourner d'où vous venez" action="info('Le dragon profite de votre fuite lache pour vous infliger trois points de dégats');health(-3);go('foret_jungle')"></agbe-choice></li>
-    <li><agbe-choice label="se cacher dans la grotte" action="go('cachette_finale');"></agbe-choice></li>
-</ul>
+    <h2>La grotte</h2>
+
+    <p>Vous entrez dans la grotte et voyez un dragon qui garde un trésor.</p>
+
+    <p>
+        <agbe-character id="dragon" clickable="false"></agbe-character>
+    </p>
+    <script>
+        agbeApp.storyScripts['dragonFightListener'] = function (eventType, data) {
+            if (data.numberOfRoundWin > 0) {
+                data.actionService.doActions("info('Vous venez de remporter un assault ! Le dragon fuit !');go('grotte_apres_dragon')");
+            }
+        };
+    </script>
+
+    <p>Vous pouvez : </p>
+    <ul>
+        <li>
+            <agbe-choice label="attaquer le dragon"
+                         action="registerFightListener('dragonFightListener');fight('dragon');go('grotte_apres_dragon')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="s'enfuir et retourner d'où vous venez"
+                         action="info('Le dragon profite de votre fuite lache pour vous infliger trois points de dégats');health(-3);go('foret_jungle')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="se cacher dans la grotte" action="go('cachette_finale');"></agbe-choice>
+        </li>
+    </ul>
 </div>

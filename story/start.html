@@ -1,12 +1,28 @@
-<h2>Au commencement</h2>
-<p>Vous êtes un naufragé. Tous vos camarades sont morts, vous êtes le seul survivant. Vous êtes sur le rivage d'une plage.</p>
-<p>Vous avez une carte, elle vous indique que vous êtes sur l'"Île des Disparus". La carte vous indique aussi qu'il y a un trésor, mais avant que n'ayez plus de renseignements, la carte est emportée au loin par une bourrasque.</p>
-<agbe-object name="un couteau" id="knife" ng-show="false"></agbe-object>
-<p ng-show="isObjectPresent('knife')">Il y a un couteau.</p>
-<p>Voulez-vous : </p>
-<ul>
-    <li><agbe-choice label="explorer la plage" action="wait(15);go('plage')"></agbe-choice></li>
-    <li><agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice></li>
-    <li><agbe-choice label="explorer l'île" action="go('ile')"></agbe-choice></li>
-    <li ng-show="isObjectPresent('knife')"><agbe-choice label="ramasser le couteau" action="take('knife')"/></li>
-</ul>
+<div class="narration col-md-8 col-md-offset-2">
+    <h2>Au commencement</h2>
+
+    <p>Vous êtes un naufragé. Tous vos camarades sont morts, vous êtes le seul survivant. Vous êtes sur le rivage d'une
+        plage.</p>
+
+    <p>Vous avez une carte, elle vous indique que vous êtes sur l'"Île des Disparus". La carte vous indique aussi qu'il
+        y a un trésor, mais avant que n'ayez plus de renseignements, la carte est emportée au loin par une
+        bourrasque.</p>
+    <p><agbe-object name="un couteau" id="knife" ng-show="false"></agbe-object></p>
+    <p ng-show="isObjectPresent('knife')">Il y a un couteau.</p>
+
+    <p>Voulez-vous : </p>
+    <ul>
+        <li>
+            <agbe-choice label="explorer la plage" action="wait(15);go('plage')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="explorer l'île" action="go('ile')"></agbe-choice>
+        </li>
+        <li ng-show="isObjectPresent('knife')">
+            <agbe-choice label="ramasser le couteau" action="take('knife')"/>
+        </li>
+    </ul>
+</div>

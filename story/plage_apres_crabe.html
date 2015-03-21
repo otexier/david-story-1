@@ -1,8 +1,19 @@
-<h2>La plage</h2>
-<p>Suite à un combat épique, vous avez vaincu le crabe géant !</p>
-<p>Voulez-vous : </p>
-<ul>
-    <li><agbe-choice label="manger le crabe" action="info('La chair du crabe est revigorante, vous regagnez de la force.');health(5);go('plage_crabe_mange')"></agbe-choice></li>
-    <li><agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice></li>
-    <li><agbe-choice label="explorer l'île" action="go('ile')"></agbe-choice></li>
-</ul>
+<div class="narration col-md-8 col-md-offset-2">
+    <h2>La plage</h2>
+
+    <p>Suite à un combat épique, vous avez vaincu le crabe géant !</p>
+
+    <p>Voulez-vous : </p>
+    <ul>
+        <li>
+            <agbe-choice label="manger le crabe"
+                         action="info('La chair du crabe est revigorante, vous regagnez de la force.');health(5);go('plage_crabe_mange')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="aller dans la forêt" action="go('foret')"></agbe-choice>
+        </li>
+        <li>
+            <agbe-choice label="explorer l'île" action="go('ile')"></agbe-choice>
+        </li>
+    </ul>
+</div>
