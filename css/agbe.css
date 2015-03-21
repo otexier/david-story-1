@@ -1,28 +1,104 @@
-html {font-size: 100%;}
-body {font-size: .8em;}
+@font-face {
+    font-family: "DancingScript-Bold";
+    src: url("fonts/DancingScript-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DancingScript-Regular";
+    src: url("fonts/DancingScript-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'DancingScript-Regular';
+    margin: 0;
+    padding: 0;
+    background: url(../img/PhaseFinale.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-color: transparent !important;
+}
+
+.narration {
+    background: url(../img/old_paper_stock_02_by_ftourini-d48ubt0.png) no-repeat top;
+    padding: 4em !important;
+}
+
+.narration h2, .home h2, .agbe_big_popup h3, .agbe_overlay h3, .agbe_big_popup h3 {
+    font-size: 4em;
+    font-family: "DancingScript-Bold" !important;
+}
+
+.narration p, .agbe_big_popup p {
+    font-size: 2.5em;
+    font-family: 'DancingScript-Regular';
+}
+.narration img{
+    max-width:100%;
+}
+.narration li {
+    font-size: 2.5em;
+    font-family: 'DancingScript-Regular';
+    list-style-image: url('../img/GWjPZ.png');
+    list-style-position: inside;
+}
+
+.narration li .ng-binding {
+    cursor: pointer;
+    position: relative;
+    top: -0.4em;
+}
+
+.white {
+    color: white !important;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.home {
+    margin-top: 8em;
+}
+
+.home h4, .agbe_overlay h4, .agbe_big_popup h4 {
+    font-size: 2.5em;
+    font-family: 'DancingScript-Regular';
+    font-weight: normal;
+    margin-top: 2em;
+}
+
+.home h4:hover, .agbe_overlay h4:hover, .agbe_big_popup h4:hover {
+    color: #edbb38;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+
+}
 
 .agbe_header {
-    width:100%;
+    width: 100%;
 }
 
 .agbe_inventory_object_image {
-    max-width:100px;
-    max-height:100px;
-    width:60%;
+    max-width: 100px;
+    max-height: 100px;
+    width: 60%;
 }
 
 .agbe_layer {
-    position:absolute;
-    top:0%;
-    left:0%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
     width: 100%;
     height: 100%;
 }
 
 .agbe_full_display_table {
-    position:absolute;
-    top:0%;
-    left:0%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
     width: 100%;
     height: 100%;
     display: table;
@@ -39,7 +115,7 @@ body {font-size: .8em;}
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-height:100%;
+    max-height: 100%;
     max-width: 100%;
 }
 
@@ -58,74 +134,94 @@ body {font-size: .8em;}
 }
 
 .agbe_left_part {
-    position:absolute;
-    top:0%;
-    left:0%;
-    width:50%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 50%;
     height: 100%;
 }
 
 .agbe_right_part {
-    position:absolute;
-    top:0%;
-    left:50%;
-    width:50%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 50%;
     height: 100%;
 }
 
-.agbe_big_popup {
-    position:absolute;
-    top:15%;
-    left:15%;
-    width:70%;
-    height: 70%;
-    background-color: darkseagreen;
+.agbe_overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
 }
+
+.agbe_big_popup {
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    color: white;
+}
+
+.pv-value {
+}
+
 .agbe_popup {
-    position:absolute;
-    top:25%;
-    left:30%;
-    width:40%;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 40%;
     height: 50%;
-    background-color: lightseagreen;
+    color: white;
 }
 
 .agbe_vertical_10_70_20-0 {
-    position:absolute;
-    top:0%;
-    left:0%;
-    width:100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
     height: 10%;
 }
 
 .agbe_vertical_10_70_20-1 {
-    position:absolute;
-    top:10%;
-    left:0%;
-    width:100%;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
     height: 70%;
 }
 
 .agbe_vertical_10_70_20-2 {
-    position:absolute;
-    top:80%;
-    left:0%;
-    width:100%;
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    width: 100%;
     height: 20%;
 }
 
 .agbe_vertical_10_90-0 {
-    position:absolute;
-    top:0%;
-    left:0%;
-    width:100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
     height: 10%;
 }
 
 .agbe_vertical_10_90-1 {
-    position:absolute;
-    top:10%;
-    left:0%;
-    width:100%;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
     height: 90%;
+}
+
+.pointer {
+    cursor: pointer;
 }
