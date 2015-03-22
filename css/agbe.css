@@ -25,31 +25,44 @@ body {
     background-color: transparent !important;
 }
 
+.header {
+    background-color: #333;
+    padding: 3px 10px;
+}
+
 .narration {
     background: url(../img/old_paper_stock_02_by_ftourini-d48ubt0.png) no-repeat top;
     padding: 4em !important;
+    background-size: 100% 100%;
 }
 
 .narration h2, .home h2, .agbe_big_popup h3, .agbe_overlay h3, .agbe_big_popup h3 {
     font-size: 4em;
     font-family: "DancingScript-Bold" !important;
 }
-
+.narration h2{
+    text-align: center;
+}
 .narration p, .agbe_big_popup p {
     font-size: 2.5em;
     font-family: 'DancingScript-Regular';
 }
-.narration img{
-    max-width:100%;
+
+.narration img {
+    max-width: 100%;
 }
-.narration li {
+
+.narration li,.home li {
     font-size: 2.5em;
     font-family: 'DancingScript-Regular';
     list-style-image: url('../img/GWjPZ.png');
     list-style-position: inside;
 }
+.no-inside{
+    list-style-position: outside !important;
 
-.narration li .ng-binding {
+}
+.narration li .ng-binding,.narration li span {
     cursor: pointer;
     position: relative;
     top: -0.4em;
@@ -59,9 +72,25 @@ body {
     color: white !important;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+.inventaire{
+    width: 14em;
+    border: 1px solid white;
+    padding:10px;
+}
+.inventaire p{
+    font-size:1.5em !important;
+    margin:0 !important;
+}
 
 .home {
     margin-top: 8em;
+}
+
+.home p {
+    font-size: 2em;
+    font-family: 'DancingScript-Regular';
+    font-weight: normal;
+    margin-top: 2em;
 }
 
 .home h4, .agbe_overlay h4, .agbe_big_popup h4 {
@@ -74,7 +103,6 @@ body {
 .home h4:hover, .agbe_overlay h4:hover, .agbe_big_popup h4:hover {
     color: #edbb38;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
-
 }
 
 .agbe_header {

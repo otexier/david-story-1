@@ -1,11 +1,28 @@
-<h1>Temps</h1>
-<p>Date et heure : <agbe-time></agbe-time></p>
-Voulez-vous ?
-<ul>
-    <li><button ng-click="onClickWait(1)">Attendre une minute</button></li>
-    <li><button ng-click="onClickWait(5)">Attendre cinq minutes</button></li>
-    <li><button ng-click="onClickWait(20)">Attendre vingt minutes</button></li>
-    <li><button ng-click="onClickWait(60)">Attendre une heure</button></li>
-    <li><button ng-click="onClickWait(360)">Attendre six heures</button></li>
-    <li><button ng-click="onClickReturnToStory()">Retourner à l'aventure</button></li>
-</ul>
+<div class="agbe_overlay">
+    <div class="text-center home white col-md-6 col-md-offset-3" style="margin-top:0">
+        <h2>Temps</h2>
+
+        <p>Date et heure :
+            <agbe-time></agbe-time>
+        </p>
+        <p style="margin-top:1em" class="text-left"> Voulez-vous ?</p>
+        <ul class="text-left">
+            <li>
+                <span class="pointer" ng-click="onClickWait(1)">Attendre une minute</span>
+            </li>
+            <li>
+                <span class="pointer" ng-click="onClickWait(5)">Attendre cinq minutes</span>
+            </li>
+            <li>
+                <span class="pointer" ng-click="onClickWait(20)">Attendre vingt minutes</span>
+            </li>
+            <li>
+                <span class="pointer" ng-click="onClickWait(60)">Attendre une heure</span>
+            </li>
+            <li>
+                <span class="pointer" ng-click="onClickWait(360)">Attendre six heures</span>
+            </li>
+        </ul>
+        <h4 class="pointer" ng-click="onClickReturnToStory()">Retourner à l'aventure</h4>
+    </div>
+</div>

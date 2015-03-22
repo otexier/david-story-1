@@ -1,8 +1,16 @@
-<h1>Page de gestion des paramètres.</h1>
-Voulez-vous :
-    <ul>
-        <li><button ng-click="agbeService.saveStory();">Sauvegarder l'aventure</button></li>
-        <li><button ng-click="agbeService.loadStory();">Reprendre l'aventure à la dernière sauvegarde</button></li>
-        <li><button ng-click="agbeService.newStory()">Recommencer une nouvelle aventure</button></li>
-        <li><button ng-click="onClickReturnToStory()">Retourner à l'aventure courante</button>
-    </ul>
+<div class="agbe_overlay">
+    <div class="text-center home white col-md-6 col-md-offset-3" style="margin-top:0">
+        <h2>Page de gestion des paramètres.</h2>
+
+        <p style="margin-top:1em" class="text-left"> Voulez-vous ?</p>
+        <ul class="text-left">
+            <li class="no-inside"><span class="pointer"
+                                        ng-click="agbeService.saveStory();">Sauvegarder l'aventure</span></li>
+            <li class="no-inside"><span class="pointer" ng-click="agbeService.loadStory();">Reprendre l'aventure à la dernière sauvegarde</span>
+            </li>
+            <li class="no-inside"><span class="pointer" ng-click="agbeService.newStory()">Recommencer une nouvelle aventure</span>
+            </li>
+        </ul>
+        <h4 class="pointer" ng-click="onClickReturnToStory()">Retourner à l'aventure</h4>
+    </div>
+</div>

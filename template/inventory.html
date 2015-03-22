@@ -1,8 +1,16 @@
-<h1>Page de gestion de l'inventaire</h1>
-<div ng-repeat="objectId in agbeService.getInventoryObjectKeyList()">
-    <div>Nom : <span ng-bind="agbeService.getPhysicalObject(objectId).name"></span></div>
-    <div><img class="agbe_inventory_object_image" ng-src="./story/img/{{agbeService.getPhysicalObject(objectId).img}}"/></div>
-    <div>Nombre : <span ng-bind="agbeService.getInventoryObjectInfo(objectId).number"></span></div>
-    <div><input type="button" value="S'en débarrasser" ng-click="agbeService.dropObject(objectId)"/></div>
+<div class="agbe_overlay">
+    <div class="text-center home white col-md-6 col-md-offset-3">
+        <h2>Page de gestion de l'inventaire</h2>
+
+        <div ng-repeat="objectId in agbeService.getInventoryObjectKeyList()" class="inventaire">
+            <p>Nom : <span ng-bind="agbeService.getPhysicalObject(objectId).name"></span></p>
+
+            <div><img class="agbe_inventory_object_image" style="max-width:100%"
+                      ng-src="./story/img/{{agbeService.getPhysicalObject(objectId).img}}"/></div>
+            <p>Nombre : <span ng-bind="agbeService.getInventoryObjectInfo(objectId).number"></span></p>
+
+            <p style="cursor" ng-click="agbeService.dropObject(objectId)">S'en débarrasser</p>
+        </div>
+        <h4 class="pointer" ng-click="onClickReturnToStory()">Retourner à l'aventure</h4>
+    </div>
 </div>
-<p><button ng-click="onClickReturnToStory()">Retourner à l'aventure</button></p>

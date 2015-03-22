@@ -1,8 +1,8 @@
 <table class="agbe_header">
     <tr>
-        <td ng-click="onCharacterClick()">Personnage : {{getMainCharHealthPoints()}} PV</td>
-        <td ng-click="onInventoryClick()">Inventaire</td>
-        <td ng-click="onTimeClick()"><agbe-time></agbe-time></td>
-        <td ng-click="onParametersClick()">Paramètres</td>
+        <td><span class="pointer" ng-click="onCharacterClick()">Personnage : {{getMainCharHealthPoints()}} PV</span></td>
+        <td><span class="pointer" ng-click="onInventoryClick()">Inventaire</span></td>
+        <td><span class="pointer" ng-click="onTimeClick()"><agbe-time></agbe-time></span></td>
+        <td class="text-right"><span class="pointer" ng-click="onParametersClick()">Paramètres</span></td>
     </tr>
 </table>
