@@ -1,0 +1,9 @@
+<h2>A la pousuite du dragon</h2>
+<p>Vous cherchez sur l'île le dragon pendant plusieurs heures et vous finissez par le trouver caché dans la forêt. Il vous faut l'affronter.</p>
+<p>Vous pouvez : </p>
+<ul>
+    <li><agbe-choice label="combattre le dragon" action="fight('dragon_affaibli');go('end')"></agbe-choice></li>
+    <li><agbe-choice label="vous enfuir dans la forêt" action="info('Le dragon vous inflige quatre points de dégats');health(-2);go('foret');"></agbe-choice></li>
+    <li><agbe-choice label="vous enfuir sur la plage" action="info('Le dragon vous inflige quatre points de dégats');health(-2);go('plage');"></agbe-choice></li>
+</ul>
+</div>

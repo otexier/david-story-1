@@ -50,9 +50,10 @@ var agbeEntities = {
     },
 
     Story: function () {
-        this.date = undefined,
-            this.step = undefined,
-            this.dataByStep = {}
+        this.date = undefined;
+        this.step = undefined;
+        this.dataByStep = {};
+        this.dataByStep.flags = {};
     },
 
     World: function () {

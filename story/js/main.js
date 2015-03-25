@@ -18,8 +18,7 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
             return newInventory;
         },
 
-        createStartStory: function () {
-            var story = new agbeEntities.Story();
+        createStartStory: function (story) {
             story.step = "start";
             story.date = new Date(2014, 01, 01, 12, 0, 0, 0);
             return story;
@@ -31,7 +30,8 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
             agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('crab', 'Le méchant crabe', 11,10,'characters/crab.png','sound/sword.mp3'));
             agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('spider', 'Une immense araignée', 15,10,'characters/spider.png','sound/sword.mp3'));
             agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('snake', 'Un immense serpent', 18,10,'characters/snake.jpg','sound/sword.mp3'));
-            agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('dragon', 'Un monstrueux dragon', 25,11,'characters/dragon.jpg','sound/sword.mp3'));
+            agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('dragon', 'Un monstrueux dragon', 25,13,'characters/dragon.png','sound/sword.mp3'));
+            agbeAdapter.agbeService.registerCharacter(newWorld,new agbeEntities.Character('dragon_affaibli', 'Le dragon affaibli', 22,12,'characters/dragon.png','sound/sword.mp3'));
             return newWorld;
         }
     }

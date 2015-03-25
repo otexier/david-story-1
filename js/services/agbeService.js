@@ -36,6 +36,19 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
             $location.path('/story/' + newLocation);
         },
 
+        setFlag:function(key) {
+            dataService.storyData.flags[key] = true;
+        },
+
+        isFlagged:function(key) {
+            var result = false;
+            var flag = dataService.storyData.flags[key];
+            if (flag != null) {
+                result = flag;
+            }
+            return result;
+        },
+
         returnToStory : function() {
             var storyStep = agbeService.getStep();
             log.log('agbeService.returnToStory : '+storyStep);
@@ -56,7 +69,8 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
             log.log("agbeService.newStory()");
             dataService.characterData = agbeAdapter.createStartCharacter();
             dataService.inventoryData = agbeAdapter.createStartInventory();
-            dataService.storyData = agbeAdapter.createStartStory();
+            dataService.storyData = new agbeEntities.Story();
+            agbeAdapter.createStartStory(dataService.storyData);
             agbeService.go(dataService.storyData.step);
         },
 
