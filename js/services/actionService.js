@@ -81,6 +81,10 @@ agbeServices.factory('actionService', ['$log', 'agbeService', 'popupService','$r
                 result.$eval(action);
             }
 
+            result.end = function() {
+                agbeService.isStoryEnd = true;
+            }
+
             result.resetHealthPoints = function() {
                 agbeService.mainCharacterResetHealthPoints()
             }

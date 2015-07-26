@@ -4,6 +4,8 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
 
         popupService:null,
 
+        isStoryEnd:false,
+
         // public API methods
 
         agbeGo: function (agbeLocation) {
@@ -62,7 +64,20 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
         loadStory: function () {
             log.log("agbeService.loadStory()");
             dataService.load();
+            agbeService.isStoryEnd = false;
             agbeService.go(dataService.storyData.step,0);
+        },
+
+        onApplicationScreenClick : function() {
+            if (agbeService.isStoryEnd === true) {
+                agbeService.end();
+            }
+        },
+
+        end: function() {
+            log.log('Retour à la case départ');
+            agbeService.newStory();
+            $location.path('/home');
         },
 
         newStory: function () {
@@ -71,6 +86,7 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService', 'agbeAd
             dataService.inventoryData = agbeAdapter.createStartInventory();
             dataService.storyData = new agbeEntities.Story();
             agbeAdapter.createStartStory(dataService.storyData);
+            agbeService.isStoryEnd = false;
             agbeService.go(dataService.storyData.step);
         },
 

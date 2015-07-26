@@ -1,5 +1,5 @@
-agbeApp.controller('agbeMainCtrl', ['$scope', '$log', '$window', 'dynamicUiService',
-    function ($scope, $log, $window, dynamicUiService) {
+agbeApp.controller('agbeMainCtrl', ['$scope', '$log', '$window', 'dynamicUiService','agbeService',
+    function ($scope, $log, $window, dynamicUiService,agbeService) {
 
         $log.log("agbeMainCtrl : initialisation");
 
@@ -10,6 +10,10 @@ agbeApp.controller('agbeMainCtrl', ['$scope', '$log', '$window', 'dynamicUiServi
                 timer = setTimeout(callback, ms);
             };
         })();
+
+        $scope.onApplicationScreenClick = function() {
+            agbeService.onApplicationScreenClick();
+        }
 
         // watch on window.resize and onload
         angular.element($window).bind('resize', function () {
